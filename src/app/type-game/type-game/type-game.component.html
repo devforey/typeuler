@@ -1,5 +1,5 @@
 <h1 id="sentence">
-  <span *ngFor="let coloredTextMetadataItem of coloredTextMetadata; trackBy: trackColorMetadata"
+  <span *ngFor="let coloredTextMetadataItem of coloredTextMetadata; trackBy: trackByIndex"
         [ngStyle]="{'color': coloredTextMetadataItem.color }">{{ coloredTextMetadataItem.letter }}</span>
 </h1>
 <input type="text" id="type-input" (ngModelChange)="onTypeInputChange($event)" [(ngModel)]="typedSentence" #typeInput="ngModel">

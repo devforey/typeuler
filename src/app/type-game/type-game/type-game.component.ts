@@ -19,7 +19,7 @@ export class TypeGameComponent {
   coloredTextMetadata: object;
   typedSentence: string;
 
-  constructor() {
+  public constructor() {
     this.coloredTextMetadata = this.parseSentenceToColoredTextMetadata(this.sentence);
   }
 
@@ -35,7 +35,7 @@ export class TypeGameComponent {
       });
   }
 
-  onTypeInputChange(value) {
+  public onTypeInputChange(value): void {
     const compareData = this.compareSentences(value, this.sentence);
     const colorValues = this.parseCompareDataToColorValues(compareData);
     this.coloredTextMetadata = this.parseSentenceToColoredTextMetadata(this.sentence, colorValues);
@@ -76,7 +76,7 @@ export class TypeGameComponent {
     return colorValues;
   }
 
-  public trackColorMetadata(index, colorMetadataItem): number {
+  public trackByIndex(index): number {
     return index;
   }
 
