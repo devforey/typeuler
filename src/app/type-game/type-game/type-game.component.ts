@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { TextCompareService } from '../../../lib/text-compare/text-compare.service';
-import { TextCompareType } from '../../../lib/text-compare/text-compare-type.enum';
+import { TextCompareService } from '@lib/text-compare/text-compare.service';
+import { TextCompareType } from '@lib/text-compare/text-compare-type.enum';
 
 @Component({
   selector: 'app-type-game',

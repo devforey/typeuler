@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { TextCompareModule } from './text-compare.module';
-import { TextCompareType } from './text-compare-type.enum';
+import { TextCompareModule } from '@lib/text-compare/text-compare.module';
+import { TextCompareType } from '@lib/text-compare/text-compare-type.enum';
 
 @Injectable({
   providedIn: TextCompareModule
