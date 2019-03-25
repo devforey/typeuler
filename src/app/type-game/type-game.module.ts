@@ -5,17 +5,19 @@ import { TypeGameRoutingModule } from './type-game-routing.module';
 import { TypeGameComponent } from './type-game/type-game.component';
 import { FormsModule } from '@angular/forms';
 import { TypeGameService } from './type-game.service';
+import { TextCompareModule } from '../../lib/text-compare/text-compare.module';
 
 @NgModule({
   declarations: [
     TypeGameComponent
   ],
   providers: [
-    TypeGameService
+    TypeGameService,
   ],
   imports: [
     CommonModule,
     FormsModule,
+    TextCompareModule.forModule(),
     TypeGameRoutingModule
   ]
 })

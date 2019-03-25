@@ -28,26 +28,6 @@ export class TypeGameService {
       });
   }
 
-  public compareSentences(sentence, toSentence): number[] {
-    const compareRawData = toSentence.split('').map(() => TypeGameService.COMPARE_UNTYPED);
-
-    for (let index = 0; index < sentence.length; index++) {
-
-      // Get out of the for loop since the inputted sentence is longer that the challenge sentence
-      if (index >= toSentence.length) {
-        break;
-      }
-
-      if (sentence[index] === toSentence[index]) {
-        compareRawData[index] = TypeGameService.COMPARE_MATCH;
-      } else {
-        compareRawData[index] = TypeGameService.COMPARE_MISMATCH;
-      }
-    }
-
-    return compareRawData;
-  }
-
   public parseCompareDataToColorValues(compareData): string[] {
     const colorValues = compareData.map((compareDatum: number) => {
       switch (compareDatum) {
