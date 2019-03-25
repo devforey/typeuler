@@ -23,12 +23,6 @@ export class TypeGameComponent {
     this.coloredTextMetadata = this.parseSentenceToColoredTextMetadata(this.sentence);
   }
 
-  public onTypeInputChange(value): void {
-    const compareData = this.textCompareService.compareTexts(value, this.sentence);
-    const colorValues = this.parseCompareDataToColorValues(compareData);
-    this.coloredTextMetadata = this.parseSentenceToColoredTextMetadata(this.sentence, colorValues);
-  }
-
   private parseSentenceToColoredTextMetadata(text: string, colorArray?: string[]): object[] {
     return text
       .split('')
@@ -39,6 +33,12 @@ export class TypeGameComponent {
           color
         };
       });
+  }
+
+  public onTypeInputChange(value): void {
+    const compareData = this.textCompareService.compareTexts(value, this.sentence);
+    const colorValues = this.parseCompareDataToColorValues(compareData);
+    this.coloredTextMetadata = this.parseSentenceToColoredTextMetadata(this.sentence, colorValues);
   }
 
   private parseCompareDataToColorValues(compareData): string[] {
