@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TextCompareService } from '@lib/text-compare/text-compare.service';
 import { TextCompareType } from '@lib/text-compare/text-compare-type.enum';
+import { ColorHex } from '@lib/color/color-hex.enum';
 
 @Component({
   selector: 'app-type-game',
@@ -8,10 +9,6 @@ import { TextCompareType } from '@lib/text-compare/text-compare-type.enum';
   styleUrls: ['./type-game.component.scss']
 })
 export class TypeGameComponent {
-
-  private static COLOR_HEX_BLACK = '#000000';
-  private static COLOR_HEX_RED = 'red';
-  private static COLOR_HEX_GREEN = 'green';
 
   private sentence = 'Transform me';
   coloredTextMetadata: object;
@@ -27,7 +24,7 @@ export class TypeGameComponent {
     return text
       .split('')
       .map((letter: string, index: number) => {
-        const color = colorArray && colorArray.length > index ? colorArray[index] : TypeGameComponent.COLOR_HEX_BLACK;
+        const color = colorArray && colorArray.length > index ? colorArray[index] : ColorHex.BLACK;
         return {
           letter,
           color
@@ -45,12 +42,12 @@ export class TypeGameComponent {
     const colorValues = compareData.map((compareDatum: number) => {
       switch (compareDatum) {
         case TextCompareType.COMPARE_MATCH:
-          return TypeGameComponent.COLOR_HEX_GREEN;
+          return ColorHex.GREEN;
         case TextCompareType.COMPARE_MISMATCH:
-          return TypeGameComponent.COLOR_HEX_RED;
+          return ColorHex.RED;
         case TextCompareType.COMPARE_UNTYPED:
         default:
-          return TypeGameComponent.COLOR_HEX_BLACK;
+          return ColorHex.BLACK;
       }
     });
     return colorValues;
